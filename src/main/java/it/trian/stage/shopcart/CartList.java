@@ -2,20 +2,19 @@ package it.trian.stage.shopcart;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Logger;
 /**
  * @author Nicholas Antinori & Mario Andrei Cojocaru questa classe contiene
  *         tutti i metodi che serviranno all'articolo di essere aggiunto rimosso
  *         o modificato nel carrello stampando inoltre anche lo stesso carrello
  *         finale con le eventuali modifiche apportate
  */
-public class CartList extends Articolo {
+public class CartList{
 	private boolean condizione = false;
+	private static final Logger LOG = (Logger) LoggerFactory.getLogger(CartList.class);
 	private List<Articolo> articoli = new ArrayList<Articolo>();
 
-	public CartList() {
-		super(0, 0);
-	}
 
 	public List<Articolo> getArticoli() {
 
