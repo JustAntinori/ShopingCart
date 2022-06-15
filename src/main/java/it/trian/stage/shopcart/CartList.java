@@ -11,7 +11,6 @@ import ch.qos.logback.classic.Logger;
  *         finale con le eventuali modifiche apportate
  */
 public class CartList{
-	private boolean condizione = false;
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(CartList.class);
 	private List<Articolo> articoli = new ArrayList<Articolo>();
 
@@ -57,7 +56,7 @@ public class CartList{
 		int index = 0;
 		for (Articolo articolo : articoli) {
 			if (id == articolo.getIdProdotto()) {
-				System.out.println("Prodotto rimosso");
+				LOG.info("il Prodotto e stato rimosso completamente");
 				System.out.println(" ");
 				index = articoli.indexOf(articolo);
 				articoli.remove(index);
@@ -73,7 +72,7 @@ public class CartList{
 		long quantita = 0;
 		for (Articolo articolo : articoli) {
 			if (id == articolo.getIdProdotto()) {
-				System.out.println("Prodotto rimosso");
+				LOG.info("Prodotto Rimosso");
 				index = articoli.indexOf(articolo);
 				trovato = true;
 				quantita = articolo.getQuantity();
@@ -106,7 +105,7 @@ public class CartList{
 	}
 
 	public void stampaCarrello() {
-		System.out.println("-----Carrello Attuale------");
+		LOG.info("-----Carrello Attuale------");
 		System.out.println(" ");
 		for (Articolo Item : articoli) {
 			Item.stampaArticolo();

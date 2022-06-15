@@ -48,8 +48,8 @@ public class Prodotto {
 	}
 
 	public void stampa() {
-		System.out.println("ID| " + getId());
-		System.out.println("Nome| " + getName());
-		System.out.println("Descrizione| " + getDescription());
+		LOG.info("ID| " + getId());
+		LOG.info("Nome| " + getName());
+		LOG.info("Descrizione| " + getDescription());
 	}
 }

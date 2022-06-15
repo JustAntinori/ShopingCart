@@ -1,6 +1,5 @@
 package it.trian.stage.shopcart;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
@@ -40,7 +39,7 @@ public class Magazzino {
 		for (Prodotto prodotto  : catalogo.values()) {
 			
 			prodotto.stampa();
-			System.out.println(" ");
+			LOG.info(" ");
 
 		}
 	}
