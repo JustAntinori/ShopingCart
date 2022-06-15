@@ -13,8 +13,7 @@ public class Magazzino {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
 	private HashMap <Integer,Prodotto> catalogo = new HashMap<Integer,Prodotto>();// Dichiarazione dell'array list di tipo Prodotti
 																		// con al suo interno tutti i prodotti elencati
-	{
-
+	/*{
 		catalogo.put(1,new Prodotto(1, "Tavolino", "Solido"));
 		catalogo.put(2,new Prodotto(2, "Sgabello", "Scomodo"));
 		catalogo.put(3,new Prodotto(3, "Armadio", "Capiente"));
@@ -29,18 +28,29 @@ public class Magazzino {
 		catalogo.put(12,new Prodotto(12, "Condizionatore", "Brr Brr"));
 		catalogo.put(13,new Prodotto(13, "Turbina", "Stutututu"));
 		catalogo.put(14,new Prodotto(14, "Letto", "Comodo"));
-
 	}
-
-
+		*/
+	//int cont;
+	
+	public void addprodotto(int cont,String nome , String descrizione) {
+		
+		catalogo.put(cont,new Prodotto(cont, nome, descrizione));
+	}
+	
+	public void removeprodotto(int cont) {
+		catalogo.remove(cont);
+		System.out.println(catalogo);
+	}
+	
+	public void modificaproduct(int cont,String nome, String descrizione) {
+		catalogo.replace(cont, new Prodotto(cont,nome,descrizione));
+		System.out.println(catalogo);
+	}
+	
 	public void stampaCatalogo() { // metodo di stampa dedicato al catalogo
-									//
-
 		for (Prodotto prodotto  : catalogo.values()) {
-			
 			prodotto.stampa();
 			LOG.info(" ");
-
 		}
 	}
 }

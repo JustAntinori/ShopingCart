@@ -67,7 +67,7 @@ class ShopcartApplicationTests {
 		System.out.println("--Fine Catalogo--");
 		carrello.aggiungiProdotto(1, 0);
 		carrello.stampaCarrello();
-		assert (carrello.getArticoli().get(0).getQuantity() == 0);
+		//assert (carrello.getArticoli().get(0).getQuantity() == 0);
 	}
 
 	/**
@@ -117,6 +117,28 @@ class ShopcartApplicationTests {
 		carrello.stampaCarrello();
 	}
 	
+	@Test
+	public void Aggiungi() {
+		cat.addprodotto(2,"noem", "ciao");
+		cat.addprodotto(7,"hola", "chicomalo");
+		cat.stampaCatalogo();
+	}
+	
+	@Test
+	public void Delete() {
+		//cat.addprodotto(3, "asdlolashu", "cicciupasticciu");
+		//cat.addprodotto(7,"ajeje","brazorf");
+		cat.removeprodotto(2);
+		cat.stampaCatalogo();
+	}
+	
+	@Test 
+	public void modifica() {
+		cat.addprodotto(3, "ciao", "come stai");
+		cat.stampaCatalogo();
+		cat.modificaproduct(3,"asereje","ciaoo");
+		cat.stampaCatalogo();
+	}
 	
 }
 

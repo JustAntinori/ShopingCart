@@ -8,7 +8,6 @@ import ch.qos.logback.classic.Logger;
  * @author Nicholas Antinori & Mario Andrei Cojocaru questa classe contiene gli
  *         attributi che avrà il prodotto visibile nel catalogo
  */
-
 public class Prodotto {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Prodotto.class);
 	private long id;
