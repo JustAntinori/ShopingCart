@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 	@author Nicholas Antinori & Mario Andrei Cojocaru 	
- * 	  Servizio Web di un carrello acquisti realizzato con un server
- *    API (Application Programming Interface) REST la quale non è altro che
- *    un'Interfaccia di Programmazione delle Applicazioni
+ * @author Nicholas Antinori & Mario Andrei Cojocaru Servizio Web di un carrello
+ *         acquisti realizzato con un server API (Application Programming
+ *         Interface) REST la quale non è altro che un'Interfaccia di
+ *         Programmazione delle Applicazioni
  */
 
 @RestController
@@ -36,7 +36,6 @@ public class Controller {
 	public void listaCarrello() {
 		carrello.stampaCarrello();
 	}
-	
 
 	@PostMapping("/mod")
 	public void modifica(long id, long quantita) {
@@ -48,6 +47,7 @@ public class Controller {
 	public void rimuovi(long id) {
 		carrello.rimuoviProdotto(id);
 	}
+
 	@DeleteMapping("/delall")
 	public void rimuovitutto(long id) {
 		carrello.removeAll(id);

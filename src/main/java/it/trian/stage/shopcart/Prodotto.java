@@ -46,7 +46,7 @@ public class Prodotto {
 		return description;
 	}
 
-	public void stampa() {
+	public void stampa() {	//metodo stampa dell'oggetto prodotto e tiene traccia tramite il file log 
 		LOG.info("ID| " + getId());
 		LOG.info("Nome| " + getName());
 		LOG.info("Descrizione| " + getDescription());

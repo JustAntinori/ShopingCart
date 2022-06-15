@@ -13,9 +13,9 @@ class ShopcartApplicationTests {
 	 */
 	@Test
 	public void TestAggiungiProdotto1() {
-		int count=0;
-			cat.stampaCatalogo();
-		
+		int count = 0;
+		cat.stampaCatalogo();
+
 		System.out.println(" ");
 		System.out.println("--Fine Catalogo--");
 		carrello.aggiungiProdotto(1, 5);
@@ -41,25 +41,24 @@ class ShopcartApplicationTests {
 	 */
 	@Test
 	public void TestAggiungiProdotto2() {
-		int index=0;
-		int q1=0;
-		int q2=0;
+		int index = 0;
+		int q1 = 0;
+		int q2 = 0;
 		cat.stampaCatalogo();
 		System.out.println(" ");
 		System.out.println("--Fine Catalogo--");
 		q1 = 5;
-		Articolo articolo=carrello.aggiungiProdotto(1, q1);
-		index=carrello.getArticoli().indexOf(articolo);
+		Articolo articolo = carrello.aggiungiProdotto(1, q1);
+		index = carrello.getArticoli().indexOf(articolo);
 		q2 = 2;
-		articolo=carrello.aggiungiProdotto(1, q2);
-	q1+=q2;
-		
+		articolo = carrello.aggiungiProdotto(1, q2);
+		q1 += q2;
+
 		carrello.aggiungiProdotto(2, 2);
 		carrello.stampaCarrello();
-		assert (carrello.getArticoli().get(index).getQuantity()==q1);
+		assert (carrello.getArticoli().get(index).getQuantity() == q1);
 	}
-	
-	
+
 	@Test
 	public void TestAggiungiProdotto3() {
 		cat.stampaCatalogo();
@@ -67,7 +66,7 @@ class ShopcartApplicationTests {
 		System.out.println("--Fine Catalogo--");
 		carrello.aggiungiProdotto(1, 0);
 		carrello.stampaCarrello();
-		//assert (carrello.getArticoli().get(0).getQuantity() == 0);
+		// assert (carrello.getArticoli().get(0).getQuantity() == 0);
 	}
 
 	/**
@@ -83,7 +82,7 @@ class ShopcartApplicationTests {
 		carrello.aggiungiProdotto(1, 2);
 		carrello.rimuoviProdotto(1);
 		carrello.stampaCarrello();
-		assert (carrello.getArticoli().get(0).getQuantity()==6);
+		assert (carrello.getArticoli().get(0).getQuantity() == 6);
 	}
 
 	/**
@@ -92,54 +91,60 @@ class ShopcartApplicationTests {
 	 */
 	@Test
 	public void TestRimuoviProdotto2() {
-    
+
 		cat.stampaCatalogo();
 		System.out.println(" ");
 		System.out.println("--Fine Catalogo--");
-		carrello.aggiungiProdotto(1,1);
+		carrello.aggiungiProdotto(1, 1);
 		carrello.rimuoviProdotto(1);
-		
+
 	}
-	
-	
+
 	/**
-	 * Questo test modifica la quantità di un prodotto presente nel carrello 
+	 * Questo test modifica la quantità di un prodotto presente nel carrello
 	 */
 	@Test
 	public void TestModificaProdotto1() {
 		cat.stampaCatalogo();
 		System.out.println(" ");
 		System.out.println("--Fine Catalogo--");
-		
-		carrello.aggiungiProdotto(5,1);
+
+		carrello.aggiungiProdotto(5, 1);
 		carrello.stampaCarrello();
-		carrello.modifyProdotto(5,8);
+		carrello.modifyProdotto(5, 8);
 		carrello.stampaCarrello();
 	}
-	
+
+	/**
+	 * Questo test aggiunge un oggetto con id nome e descrizione all'interno del
+	 * catalogo
+	 */
 	@Test
 	public void Aggiungi() {
-		cat.addprodotto(2,"noem", "ciao");
-		cat.addprodotto(7,"hola", "chicomalo");
+		cat.addprodotto(2, "Ferrari", "Rossa");
+		cat.addprodotto(7, "Ford", "Blue");
 		cat.stampaCatalogo();
 	}
-	
+
+	/**
+	 * Questo test rimuove tramite id un prodotto presente nel catalogo
+	 */
 	@Test
 	public void Delete() {
-		//cat.addprodotto(3, "asdlolashu", "cicciupasticciu");
-		//cat.addprodotto(7,"ajeje","brazorf");
 		cat.removeprodotto(2);
 		cat.stampaCatalogo();
 	}
-	
-	@Test 
+
+	/**
+	 * Questo test modifica nome e descrizione di un prodotto presente nel catalogo
+	 * ma NON MODIFICA L'ID
+	 */
+	@Test
 	public void modifica() {
 		cat.addprodotto(3, "ciao", "come stai");
 		cat.stampaCatalogo();
-		cat.modificaproduct(3,"asereje","ciaoo");
+		cat.modificaproduct(3, "Ferrari", "Veloce");
 		cat.stampaCatalogo();
 	}
-	
+
 }
-
-

@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ShopcartApplication {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Prodotto.class);
+
 	public static void main(String[] args) {
 		LOG.info("START");
 		SpringApplication.run(ShopcartApplication.class, args);
