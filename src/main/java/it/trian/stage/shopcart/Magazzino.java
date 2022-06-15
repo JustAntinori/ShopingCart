@@ -12,9 +12,7 @@ import ch.qos.logback.classic.Logger;
 
 public class Magazzino {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
-	private int totale;
-	Articolo elemento = new Articolo(0, 0);
-	private HashMap <Integer,Prodotto> catalogo = new HashMap<Integer,Prodotto>();// Dchiarazione dell'array list di tipo Prodotti
+	private HashMap <Integer,Prodotto> catalogo = new HashMap<Integer,Prodotto>();// Dichiarazione dell'array list di tipo Prodotti
 																		// con al suo interno tutti i prodotti elencati
 	{
 
@@ -36,12 +34,12 @@ public class Magazzino {
 	}
 
 
-	public void stampaCatalogo() { // etodo di stampa dedicato al catalogo ricevendo come parametro un indice o un
-									// id preciso
+	public void stampaCatalogo() { // metodo di stampa dedicato al catalogo
+									//
 
-		for (Integer Key  : catalogo.keySet()) {
+		for (Prodotto prodotto  : catalogo.values()) {
 			
-			Item.stampa();
+			prodotto.stampa();
 			System.out.println(" ");
 
 		}
