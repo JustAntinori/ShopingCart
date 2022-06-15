@@ -15,24 +15,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class ControllerMagazzino {
+	Magazzino catalogo = new Magazzino();
 	
 	@PostMapping("/Aggiungi")
-	public void AaggiungiCatalogo() {
-		
+	public void AaggiungiCatalogo(int id,String nome,String Descrizione) {
+		catalogo.addprodotto(id, nome, Descrizione);
 	}
 	
 	@DeleteMapping("/Rimuovi")
-	public void RimuoviProdotto(){
+	public void RimuoviProdotto(int id){
+		catalogo.removeprodotto(id);
 		
 	}
 	
 	@PostMapping("/Modifica")
-	public void ModificaProdotto() {
+	public void ModificaProdotto(int id,String nome,String Descrizione) {
+		catalogo.modificaproduct(id, nome, Descrizione);
 		
 	}
 	
 	@GetMapping("/Catalogo")
 	public void StampaCAtalogo() {
+		catalogo.stampaCatalogo();
 		
 	}
 	

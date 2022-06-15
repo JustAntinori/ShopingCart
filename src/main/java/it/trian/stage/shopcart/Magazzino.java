@@ -35,16 +35,19 @@ public class Magazzino {
 	public void addprodotto(int cont,String nome , String descrizione) {
 		
 		catalogo.put(cont,new Prodotto(cont, nome, descrizione));
+		LOG.info("Prodotto Aggiunto Dal Catalogo");
 	}
 	
 	public void removeprodotto(int cont) {
 		catalogo.remove(cont);
 		System.out.println(catalogo);
+		LOG.info("Prodotto Rimosso Dal Catalogo");
 	}
 	
 	public void modificaproduct(int cont,String nome, String descrizione) {
 		catalogo.replace(cont, new Prodotto(cont,nome,descrizione));
 		System.out.println(catalogo);
+		LOG.info("Prodotto Modificato Dal Catalogo");
 	}
 	
 	public void stampaCatalogo() { // metodo di stampa dedicato al catalogo
