@@ -5,11 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.HashMap;
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  *
@@ -26,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/carrello")
 public class Controller {
+	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
 	CartList carrello = new CartList();
 	@Autowired()
 	private Magazzino magazzino;
@@ -36,11 +40,13 @@ public class Controller {
 	}
 
 	@PostMapping("/aggiungi")
-	public void aggiungi(long id, long quantita) {
-		carrello.aggiungiProdotto(id, quantita);
-		System.out.println("Prodotto Aggiunto correttamente");
-		System.out.println("----------------");
-		carrello.stampaCarrello();
+	public void aggiungi(int id, long quantita) {
+		boolean controllo;
+		controllo=magazzino.controllo(id);
+		if(controllo==true) {
+			carrello.aggiungiProdotto(id, quantita);
+			LOG.info("Prodotto Aggiunto correttamente");
+		} 
 	}
 
 	@GetMapping("/stampa")

@@ -3,6 +3,8 @@ package it.trian.stage.shopcart;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ch.qos.logback.classic.Logger;
 /**
  * 
@@ -12,6 +14,7 @@ import ch.qos.logback.classic.Logger;
  * @author Mario Andrei Cojocaru 
  * @version 1.5
  */
+
 public class CartList{
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(CartList.class);
 	private List<Articolo> articoli = new ArrayList<Articolo>();
@@ -25,7 +28,7 @@ public class CartList{
 	public void setArticoli(List<Articolo> articoli) {
 		this.articoli = articoli;
 	}
-
+	@Autowired()
 	public Articolo aggiungiProdotto(long id, long quantita) { // metodo di istanza per l'aggiunta di un prodotto nel
 																// carrello
 		boolean trovato = false;

@@ -1,5 +1,9 @@
 package it.trian.stage.shopcart;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 /**
  * 
  *  classe denominata articolo la quale ha la
@@ -9,7 +13,9 @@ package it.trian.stage.shopcart;
  * @author Mario Andrei Cojocaru
  * @version 1.3
  */
+
 public class Articolo { // classe articolo un semplice pojo
+	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Articolo.class);
 	private long quantity;
 	private long idProdotto;
 
@@ -37,7 +43,7 @@ public class Articolo { // classe articolo un semplice pojo
 	}
 
 	public void stampaArticolo() { // metodo di stampa
-		System.out.println("ProductId| " + getIdProdotto());
-		System.out.println("Quantita Ordinta| " + getQuantity());
+		LOG.info("ProductId| " + getIdProdotto());
+		LOG.info("Quantita Ordinta| " + getQuantity());
 	}
 }
