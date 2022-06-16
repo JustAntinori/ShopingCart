@@ -18,7 +18,7 @@ import ch.qos.logback.classic.Logger;
 public class Magazzino {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
 	private HashMap<Integer, Prodotto> catalogo = new HashMap<Integer, Prodotto>();// Dichiarazione dell'array map di
-	private int contatore;
+	private int contatore=0;
 
 	public HashMap<Integer, Prodotto> getCatalogo() {
 		return catalogo;
@@ -29,16 +29,14 @@ public class Magazzino {
 	}
 
 	// metodo di aggiunta di un prodotto al catalogo
-	public void addprodotto(int cont, String nome, String descrizione) {
-		if (cont != contatore) {
-			catalogo.put(cont, new Prodotto(cont, nome, descrizione));
-			contatore = cont;
+	public void addprodotto(int id, String nome, String descrizione) {
+		if (!catalogo.containsKey(id)) {
+			catalogo.put(id, new Prodotto(id, nome, descrizione));
 			LOG.info("Prodotto Aggiunto al Catalogo");
-			// System.out.println("L'ID è già associato ad un prodotto");
-		} else {
-			LOG.info("L'ID e' gia' associato ad un prodotto");
+		}else {
+			throw new RuntimeException("L'ID e' gia' associato ad un prodotto");
 		}
-
+		
 	}
 
 	// metodo per la rimozione di un prodotto nel catalogo
