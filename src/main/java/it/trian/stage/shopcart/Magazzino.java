@@ -2,6 +2,8 @@ package it.trian.stage.shopcart;
 
 import java.util.HashMap;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
 import ch.qos.logback.classic.Logger;
 
 /**
@@ -12,7 +14,7 @@ import ch.qos.logback.classic.Logger;
  *         descrizione
  * @version 1.6
  */
-
+@Repository("magazzino")
 public class Magazzino {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
 	private HashMap<Integer, Prodotto> catalogo = new HashMap<Integer, Prodotto>();// Dichiarazione dell'array map di
@@ -31,10 +33,10 @@ public class Magazzino {
 		if (cont != contatore) {
 			catalogo.put(cont, new Prodotto(cont, nome, descrizione));
 			contatore = cont;
-			LOG.info("Prodotto Aggiunto Dal Catalogo");
+			LOG.info("Prodotto Aggiunto al Catalogo");
 			// System.out.println("L'ID è già associato ad un prodotto");
 		} else {
-			System.out.println("L'ID è già associato ad un prodotto");
+			LOG.info("L'ID e' gia' associato ad un prodotto");
 		}
 
 	}

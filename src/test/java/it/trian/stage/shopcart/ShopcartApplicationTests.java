@@ -122,7 +122,8 @@ class ShopcartApplicationTests {
 	@Test
 	public void Aggiungi() {
 		cat.addprodotto(2, "Ferrari", "Rossa");
-		cat.addprodotto(7, "Ford", "Blue");
+		cat.addprodotto(3, "Ford", "Blue");
+		cat.addprodotto(4, "macchina","");
 		cat.stampaCatalogo();
 	}
 

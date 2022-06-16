@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/carrello")
 public class Controller {
 	CartList carrello = new CartList();
-	Magazzino magazzino = new Magazzino();
+	@Autowired()
+	private Magazzino magazzino;
 
 	@GetMapping("/listaProdotti")
 	public HashMap lista() {

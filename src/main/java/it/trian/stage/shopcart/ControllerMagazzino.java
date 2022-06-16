@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/magazzino")
 public class ControllerMagazzino {
-	Magazzino magazzino = new Magazzino();
-	//Magazzino c1 =new Magazzino();
-
+	@Autowired()
+	private Magazzino magazzino;
 	@PostMapping("/Aggiungi")
 	public void AaggiungiCatalogo(int id, String nome, String Descrizione) {
 		 magazzino.addprodotto(id, nome, Descrizione);
