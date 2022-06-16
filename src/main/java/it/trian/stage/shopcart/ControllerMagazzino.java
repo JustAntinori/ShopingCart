@@ -30,8 +30,8 @@ public class ControllerMagazzino {
 	@Autowired()
 	private Magazzino magazzino;
 	@PostMapping("/aggiungi")
-	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String Descrizione) {
-		 magazzino.addProdotto(id, nome, Descrizione);
+	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String descrizione) {
+		 magazzino.addProdotto(id, nome, descrizione);
 		
 	}
 
@@ -56,7 +56,7 @@ public class ControllerMagazzino {
 	}
 
 	@GetMapping("/stampa")
-	public HashMap StampaCAtalogo() {
+	public HashMap StampaCatalogo() {
 		return magazzino.getCatalogo();
 
 	}
