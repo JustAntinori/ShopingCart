@@ -120,10 +120,9 @@ class ShopcartApplicationTests {
 	 * catalogo
 	 */
 	@Test
-	public void Aggiungi() {
-		cat.addprodotto(2, "Ferrari", "Rossa");
-		cat.addprodotto(3, "Ford", "Blue");
-		cat.addprodotto(4, "macchina","");
+	public void aggiungi() {
+		cat.addProdotto(2, "Ferrari", "Rossa");
+		cat.addProdotto(7, "Ford", "Blue");
 		cat.stampaCatalogo();
 	}
 
@@ -131,8 +130,8 @@ class ShopcartApplicationTests {
 	 * Questo test rimuove tramite id un prodotto presente nel catalogo
 	 */
 	@Test
-	public void Delete() {
-		cat.removeprodotto(2);
+	public void delete() {
+		cat.removeProdotto(2);
 		cat.stampaCatalogo();
 	}
 
@@ -142,9 +141,9 @@ class ShopcartApplicationTests {
 	 */
 	@Test
 	public void modifica() {
-		cat.addprodotto(3, "ciao", "come stai");
+		cat.addProdotto(3, "ciao", "come stai");
 		cat.stampaCatalogo();
-		cat.modificaproduct(3, "Ferrari", "Veloce");
+		cat.modificaProduct(3, "Ferrari", "Veloce");
 		cat.stampaCatalogo();
 	}
 

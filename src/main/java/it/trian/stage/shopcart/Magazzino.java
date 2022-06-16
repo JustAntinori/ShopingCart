@@ -29,7 +29,7 @@ public class Magazzino {
 	}
 
 	// metodo di aggiunta di un prodotto al catalogo
-	public void addprodotto(int id, String nome, String descrizione) {
+	public void addProdotto(int id, String nome, String descrizione) {
 		if (!catalogo.containsKey(id)) {
 			catalogo.put(id, new Prodotto(id, nome, descrizione));
 			LOG.info("Prodotto Aggiunto al Catalogo");
@@ -40,7 +40,7 @@ public class Magazzino {
 	}
 
 	// metodo per la rimozione di un prodotto nel catalogo
-	public int removeprodotto(int id) {
+	public int removeProdotto(int id) {
 		Prodotto prod = null;
 		int tempId = 0;
 		prod = catalogo.remove(id);
@@ -55,7 +55,7 @@ public class Magazzino {
 	}
 
 	// metodo che modifica un prodotto nel catalogo
-	public void modificaproduct(int cont, String nome, String descrizione) {
+	public void modificaProduct(int cont, String nome, String descrizione) {
 		catalogo.replace(cont, new Prodotto(cont, nome, descrizione));
 		System.out.println(catalogo);
 		LOG.info("Prodotto Modificato Dal Catalogo");

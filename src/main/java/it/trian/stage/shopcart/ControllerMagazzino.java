@@ -30,7 +30,7 @@ public class ControllerMagazzino {
 	private Magazzino magazzino;
 	@PostMapping("/Aggiungi")
 	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String Descrizione) {
-		 magazzino.addprodotto(id, nome, Descrizione);
+		 magazzino.addProdotto(id, nome, Descrizione);
 		
 	}
 
@@ -42,7 +42,7 @@ public class ControllerMagazzino {
 	@DeleteMapping("/Rimuovi")
 	public int RimuoviProdotto(int id) { 
 		int temp=0;
-		temp=magazzino.removeprodotto(id);
+		temp=magazzino.removeProdotto(id);
 		return temp;
 		
 
@@ -50,7 +50,7 @@ public class ControllerMagazzino {
 
 	@PostMapping("/Modifica")
 	public void ModificaProdotto(int id, String nome, String Descrizione) {
-		magazzino.modificaproduct(id, nome, Descrizione);
+		magazzino.modificaProduct(id, nome, Descrizione);
 
 	}
 
