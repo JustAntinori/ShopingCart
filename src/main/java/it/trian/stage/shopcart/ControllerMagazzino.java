@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Nicholas Antinori 
- * @author Mario Andrei Cojocaru 
  * 
- * @apiNote Servizio Web di un carrello
+ * 
+ *  Servizio Web di un carrello
  * acquisti realizzato con un server API (Application Programming
  * Interface) REST la quale non è altro che un'Interfaccia di
  * Programmazione delle Applicazioni(Controller per la gestione del magazzino)
+ * @author Nicholas Antinori 
+ * @author Mario Andrei Cojocaru 
  * @version 1.2
  */
 
@@ -28,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerMagazzino {
 	@Autowired()
 	private Magazzino magazzino;
-	@PostMapping("/Aggiungi")
+	@PostMapping("/aggiungi")
 	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String Descrizione) {
 		 magazzino.addProdotto(id, nome, Descrizione);
 		
@@ -39,7 +40,7 @@ public class ControllerMagazzino {
 	 * @param id
 	 * @return id se ok,altrimenti -1 
 	 */
-	@DeleteMapping("/Rimuovi")
+	@DeleteMapping("/rimuovi")
 	public int RimuoviProdotto(int id) { 
 		int temp=0;
 		temp=magazzino.removeProdotto(id);
@@ -48,13 +49,13 @@ public class ControllerMagazzino {
 
 	}
 
-	@PostMapping("/Modifica")
-	public void ModificaProdotto(int id, String nome, String Descrizione) {
-		magazzino.modificaProduct(id, nome, Descrizione);
+	@PostMapping("/modifica")
+	public void ModificaProdotto(int id, String nome, String descrizione) {
+		magazzino.modificaProdotto(id, nome, descrizione);
 
 	}
 
-	@GetMapping("/stampaMagazzino")
+	@GetMapping("/stampa")
 	public HashMap StampaCAtalogo() {
 		return magazzino.getCatalogo();
 

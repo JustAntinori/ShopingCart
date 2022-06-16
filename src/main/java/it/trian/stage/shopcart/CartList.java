@@ -5,9 +5,11 @@ import java.util.List;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 /**
+ * 
+ *  questa classe contiene tutti i metodi che serviranno all'articolo di essere aggiunto rimosso o modificato nel carrello stampando inoltre anche lo stesso carrello finale con le eventuali modifiche apportate
+ * 
  * @author Nicholas Antinori 
  * @author Mario Andrei Cojocaru 
- * @apiNote questa classe contiene tutti i metodi che serviranno all'articolo di essere aggiunto rimosso o modificato nel carrello stampando inoltre anche lo stesso carrello finale con le eventuali modifiche apportate
  * @version 1.5
  */
 public class CartList{

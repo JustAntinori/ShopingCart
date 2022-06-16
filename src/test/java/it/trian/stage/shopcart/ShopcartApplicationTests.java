@@ -143,7 +143,7 @@ class ShopcartApplicationTests {
 	public void modifica() {
 		cat.addProdotto(3, "ciao", "come stai");
 		cat.stampaCatalogo();
-		cat.modificaProduct(3, "Ferrari", "Veloce");
+		cat.modificaProdotto(3, "Ferrari", "Veloce");
 		cat.stampaCatalogo();
 	}
 

@@ -1,11 +1,12 @@
 package it.trian.stage.shopcart;
 
 /**
- * @author Nicholas Antinori
- * @author Mario Andrei Cojocaru
- * @apiNote classe denominata articolo la quale ha la
+ * 
+ *  classe denominata articolo la quale ha la
  *         funzione di tenere sempre aggiornata la quantità dell'articolo
  *         (Ottimizzato)
+ * @author Nicholas Antinori
+ * @author Mario Andrei Cojocaru
  * @version 1.3
  */
 public class Articolo { // classe articolo un semplice pojo

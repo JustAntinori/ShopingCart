@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 
 /**
+ * 
+ * questa classe contiene gli attributi che avrà il prodotto visibile nel catalogo
+ * 
  * @author Nicholas Antinori 
  * @author Mario Andrei Cojocaru 
- * questa classe contiene gli attributi che avrà il prodotto visibile nel catalogo
  * @version 1.2
  */
 public class Prodotto {

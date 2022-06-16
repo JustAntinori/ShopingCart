@@ -7,12 +7,14 @@ import org.springframework.stereotype.Repository;
 import ch.qos.logback.classic.Logger;
 
 /**
- * @author Nicholas Antinori
- * @author Mario Andrei Cojocaru 
- * @apiNote questa classe permette di aggiungere
+ * 
+ *  questa classe permette di aggiungere
  *         all'interno di un catalogo un prodotto tramite parametri id,nome e
  *         descrizione
+ * @author Nicholas Antinori
+ * @author Mario Andrei Cojocaru 
  * @version 1.6
+ * 
  */
 @Repository("magazzino")
 public class Magazzino {
@@ -55,7 +57,7 @@ public class Magazzino {
 	}
 
 	// metodo che modifica un prodotto nel catalogo
-	public void modificaProduct(int cont, String nome, String descrizione) {
+	public void modificaProdotto(int cont, String nome, String descrizione) {
 		catalogo.replace(cont, new Prodotto(cont, nome, descrizione));
 		System.out.println(catalogo);
 		LOG.info("Prodotto Modificato Dal Catalogo");

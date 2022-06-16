@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Nicholas Antinori 
- * @author Mario Andrei Cojocaru 
-  
- * @apiNote Servizio Web di un carrello
+ *
+ *  Servizio Web di un carrello
  * acquisti realizzato con un server API (Application Programming
  *  Interface) REST la quale non è altro che un'Interfaccia di
  *  Programmazione delle Applicazioni(Controller che permette la gestione del carrello)
- *  @version 1.4
+ *  
+ *  @author Nicholas Antinori 
+ * 	@author Mario Andrei Cojocaru 
+ * @version 1.4
  */
 
 @RestController
@@ -29,12 +30,12 @@ public class Controller {
 	@Autowired()
 	private Magazzino magazzino;
 
-	@GetMapping("/listaProdotti")
+	@GetMapping("/lista")
 	public HashMap lista() {
 		return magazzino.getCatalogo();
 	}
 
-	@PostMapping("/aggiungiProdotto")
+	@PostMapping("/aggiungi")
 	public void aggiungi(long id, long quantita) {
 		carrello.aggiungiProdotto(id, quantita);
 		System.out.println("Prodotto Aggiunto correttamente");
@@ -42,18 +43,18 @@ public class Controller {
 		carrello.stampaCarrello();
 	}
 
-	@GetMapping("/stampaCarrello")
+	@GetMapping("/stampa")
 	public List listaCarrello() {
 		return carrello.getArticoli();
 	}
 
-	@PostMapping("/modificaProdotto")
+	@PostMapping("/modifica")
 	public void modifica(long id, long quantita) {
 		carrello.modifyProdotto(id, quantita);
 		System.out.println("Prodotto Modificato correttamente");
 	}
 
-	@DeleteMapping("/rimuoviProdotto")
+	@DeleteMapping("/rimuovi")
 	public void rimuovi(long id) {
 		carrello.rimuoviProdotto(id);
 	}
