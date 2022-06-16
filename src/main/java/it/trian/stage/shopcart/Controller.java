@@ -57,7 +57,7 @@ public class Controller {
 	@PostMapping("/modifica")
 	public void modifica(long id, long quantita) {
 		carrello.modifyProdotto(id, quantita);
-		System.out.println("Prodotto Modificato correttamente");
+		LOG.info("Prodotto Modificato correttamente");
 	}
 
 	@DeleteMapping("/rimuovi")
