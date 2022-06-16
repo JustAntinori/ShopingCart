@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Nicholas Antinori 
  * @author Mario Andrei Cojocaru 
- * Servizio Web di un carrello
+  
+ * @apiNote Servizio Web di un carrello
  * acquisti realizzato con un server API (Application Programming
  *  Interface) REST la quale non è altro che un'Interfaccia di
  *  Programmazione delle Applicazioni(Controller che permette la gestione del carrello)

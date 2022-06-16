@@ -9,7 +9,7 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Nicholas Antinori
  * @author Mario Andrei Cojocaru 
- * questa classe permette di aggiungere
+ * @apiNote questa classe permette di aggiungere
  *         all'interno di un catalogo un prodotto tramite parametri id,nome e
  *         descrizione
  * @version 1.6
