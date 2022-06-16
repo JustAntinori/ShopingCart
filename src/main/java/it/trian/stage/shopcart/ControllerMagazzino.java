@@ -1,43 +1,60 @@
 package it.trian.stage.shopcart;
 
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.HashMap;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Nicholas Antinori & Mario Andrei Cojocaru Servizio Web di un carrello
- *         acquisti realizzato con un server API (Application Programming
- *         Interface) REST la quale non è altro che un'Interfaccia di
- *         Programmazione delle Applicazioni
+ * @author Nicholas Antinori 
+ * @author Mario Andrei Cojocaru 
+ * 
+ * Servizio Web di un carrello
+ * acquisti realizzato con un server API (Application Programming
+ * Interface) REST la quale non è altro che un'Interfaccia di
+ * Programmazione delle Applicazioni(Controller per la gestione del magazzino)
+ * @version 1.2
  */
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/magazzino")
 public class ControllerMagazzino {
-	Magazzino catalogo = new Magazzino();
+	Magazzino magazzino = new Magazzino();
+	//Magazzino c1 =new Magazzino();
 
 	@PostMapping("/Aggiungi")
 	public void AaggiungiCatalogo(int id, String nome, String Descrizione) {
-		catalogo.addprodotto(id, nome, Descrizione);
+		 magazzino.addprodotto(id, nome, Descrizione);
 	}
 
+	
+	/**
+	 * @param id
+	 * @return id se ok,altrimenti -1 
+	 */
 	@DeleteMapping("/Rimuovi")
-	public void RimuoviProdotto(int id) {
-		catalogo.removeprodotto(id);
+	public int RimuoviProdotto(int id) { 
+		int temp=0;
+		temp=magazzino.removeprodotto(id);
+		return temp;
+		
 
 	}
 
 	@PostMapping("/Modifica")
 	public void ModificaProdotto(int id, String nome, String Descrizione) {
-		catalogo.modificaproduct(id, nome, Descrizione);
+		magazzino.modificaproduct(id, nome, Descrizione);
 
 	}
 
-	@GetMapping("/Catalogo")
-	public void StampaCAtalogo() {
-		catalogo.stampaCatalogo();
+	@GetMapping("/stampaMagazzino")
+	public HashMap StampaCAtalogo() {
+		return magazzino.getCatalogo();
 
 	}
 

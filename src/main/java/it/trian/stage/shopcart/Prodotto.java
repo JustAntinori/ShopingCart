@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 
 /**
- * @author Nicholas Antinori & Mario Andrei Cojocaru questa classe contiene gli
- *         attributi che avrà il prodotto visibile nel catalogo
+ * @author Nicholas Antinori 
+ * @author Mario Andrei Cojocaru 
+ * questa classe contiene gli attributi che avrà il prodotto visibile nel catalogo
+ * @version 1.2
  */
 public class Prodotto {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Prodotto.class);

@@ -1,30 +1,37 @@
 package it.trian.stage.shopcart;
 
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Nicholas Antinori & Mario Andrei Cojocaru Servizio Web di un carrello
- *         acquisti realizzato con un server API (Application Programming
- *         Interface) REST la quale non è altro che un'Interfaccia di
- *         Programmazione delle Applicazioni
+ * @author Nicholas Antinori 
+ * @author Mario Andrei Cojocaru 
+ * Servizio Web di un carrello
+ * acquisti realizzato con un server API (Application Programming
+ *  Interface) REST la quale non è altro che un'Interfaccia di
+ *  Programmazione delle Applicazioni(Controller che permette la gestione del carrello)
+ *  @version 1.4
  */
 
 @RestController
-@RequestMapping()
+@RequestMapping("/carrello")
 public class Controller {
 	CartList carrello = new CartList();
-	Magazzino catalogo = new Magazzino();
+	Magazzino magazzino = new Magazzino();
 
-	@GetMapping("/list")
-	public void lista() {
-		catalogo.stampaCatalogo();
+	@GetMapping("/listaProdotti")
+	public HashMap lista() {
+		return magazzino.getCatalogo();
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/aggiungiProdotto")
 	public void aggiungi(long id, long quantita) {
 		carrello.aggiungiProdotto(id, quantita);
 		System.out.println("Prodotto Aggiunto correttamente");
@@ -32,25 +39,20 @@ public class Controller {
 		carrello.stampaCarrello();
 	}
 
-	@GetMapping("/cart")
-	public void listaCarrello() {
-		carrello.stampaCarrello();
+	@GetMapping("/stampaCarrello")
+	public List listaCarrello() {
+		return carrello.getArticoli();
 	}
 
-	@PostMapping("/mod")
+	@PostMapping("/modificaProdotto")
 	public void modifica(long id, long quantita) {
 		carrello.modifyProdotto(id, quantita);
 		System.out.println("Prodotto Modificato correttamente");
 	}
 
-	@DeleteMapping("/del")
+	@DeleteMapping("/rimuoviProdotto")
 	public void rimuovi(long id) {
 		carrello.rimuoviProdotto(id);
-	}
-
-	@DeleteMapping("/delall")
-	public void rimuovitutto(long id) {
-		carrello.removeAll(id);
 	}
 
 }
