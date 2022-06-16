@@ -29,8 +29,9 @@ public class ControllerMagazzino {
 	@Autowired()
 	private Magazzino magazzino;
 	@PostMapping("/Aggiungi")
-	public void AaggiungiCatalogo(int id, String nome, String Descrizione) {
+	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String Descrizione) {
 		 magazzino.addprodotto(id, nome, Descrizione);
+		
 	}
 
 	
