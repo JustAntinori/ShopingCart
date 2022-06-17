@@ -30,7 +30,7 @@ public class ControllerMagazzino {
 	@Autowired()
 	private Magazzino magazzino;
 	@PostMapping("/aggiungi")
-	public void AaggiungiCatalogo(int id, String nome,@RequestParam(required=true) String descrizione) {
+	public void aggiungiCatalogo(int id, String nome,@RequestParam(required=true) String descrizione) {
 		 magazzino.addProdotto(id, nome, descrizione);
 		
 	}
@@ -41,7 +41,7 @@ public class ControllerMagazzino {
 	 * @return id se ok,altrimenti -1 
 	 */
 	@DeleteMapping("/rimuovi")
-	public int RimuoviProdotto(int id) { 
+	public int rimuoviProdotto(int id) { 
 		int temp=0;
 		temp=magazzino.removeProdotto(id);
 		return temp;
@@ -50,13 +50,13 @@ public class ControllerMagazzino {
 	}
 
 	@PostMapping("/modifica")
-	public void ModificaProdotto(int id, String nome, String descrizione) {
+	public void modificaProdotto(int id, String nome, String descrizione) {
 		magazzino.modificaProdotto(id, nome, descrizione);
 
 	}
 
 	@GetMapping("/stampa")
-	public HashMap StampaCatalogo() {
+	public HashMap stampaCatalogo() {
 		return magazzino.getCatalogo();
 
 	}

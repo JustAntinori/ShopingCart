@@ -28,7 +28,6 @@ public class CartList{
 	public void setArticoli(List<Articolo> articoli) {
 		this.articoli = articoli;
 	}
-	@Autowired()
 	public Articolo aggiungiProdotto(long id, long quantita) { // metodo di istanza per l'aggiunta di un prodotto nel
 																// carrello
 		boolean trovato = false;

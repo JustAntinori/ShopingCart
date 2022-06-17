@@ -45,7 +45,7 @@ public class Controller {
 		controllo=magazzino.controllo(id);
 		if(controllo==true) {
 			carrello.aggiungiProdotto(id, quantita);
-			LOG.info("Prodotto Aggiunto correttamente");
+			LOG.info("Prodotto Aggiunto Correttamente");
 		} 
 	}
 

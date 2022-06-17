@@ -90,7 +90,7 @@ class ShopcartApplicationTests {
 	 * è minore di 1
 	 */
 	@Test
-	public void TestRimuoviProdotto2() {
+	public void testRimuoviProdotto2() {
 
 		cat.stampaCatalogo();
 		System.out.println(" ");
@@ -104,7 +104,7 @@ class ShopcartApplicationTests {
 	 * Questo test modifica la quantità di un prodotto presente nel carrello
 	 */
 	@Test
-	public void TestModificaProdotto1() {
+	public void testModificaProdotto1() {
 		cat.stampaCatalogo();
 		System.out.println(" ");
 		System.out.println("--Fine Catalogo--");

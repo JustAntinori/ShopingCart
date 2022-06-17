@@ -44,7 +44,7 @@ public class Magazzino {
 	public boolean controllo(int id) { // metodo per il controllo tramite id se il prodotto è presente nel catalogo
 		boolean find;
 		if (catalogo.containsKey(id)) {
-			LOG.info("Prodotto Presnte nel catalogo");
+			LOG.info("Prodotto Presente nel catalogo");
 			find=true;
 		}else {
 			throw new RuntimeException("ID NON PRESENTE NEL CATALOGO");
