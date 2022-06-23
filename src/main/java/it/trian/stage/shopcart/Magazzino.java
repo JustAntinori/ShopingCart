@@ -2,8 +2,7 @@ package it.trian.stage.shopcart;
 
 import java.util.HashMap;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-
+import org.springframework.stereotype.Component;
 import ch.qos.logback.classic.Logger;
 
 /**
@@ -16,11 +15,11 @@ import ch.qos.logback.classic.Logger;
  * @version 1.6
  * 
  */
-@Repository("magazzino")
+@Component("magazzino")
 public class Magazzino {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
 	private HashMap<Integer, Prodotto> catalogo = new HashMap<Integer, Prodotto>();// Dichiarazione dell'array map di
-	private int contatore=0;
+
 
 	public HashMap<Integer, Prodotto> getCatalogo() {
 		return catalogo;

@@ -3,7 +3,7 @@ package it.trian.stage.shopcart;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import ch.qos.logback.classic.Logger;
 /**
@@ -14,10 +14,11 @@ import ch.qos.logback.classic.Logger;
  * @author Mario Andrei Cojocaru 
  * @version 1.5
  */
-
+@Component("carrello")
 public class CartList{
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(CartList.class);
 	private List<Articolo> articoli = new ArrayList<Articolo>();
+	
 
 
 	public List<Articolo> getArticoli() {
@@ -39,7 +40,7 @@ public class CartList{
 			throw new RuntimeException("la quantita non può essere negativa");
 		}
 
-		for (Articolo elemento : articoli) { // si scorre tutta la lista e se l'id passato è già presente ne aumenta la
+		for (Articolo elemento : articoli) { // si scorre tutta la lista e se l'id ricevuto è già presente nel carrello ne aumenta la
 												// quantità
 			if (id == elemento.getIdProdotto()) {
 				long qTmp = elemento.getQuantity() + quantita;
@@ -49,28 +50,14 @@ public class CartList{
 				break;
 			}
 		}
-		if (!trovato) { // se l'id non è presente viene creato l'oggetto
+		if (!trovato) { // se l'id non è presente viene creato un articolo con quelle caratteristice 
 			articolo = new Articolo(id, quantita);
 			articoli.add(articolo);
 		}
 		return articolo;
 	}
-
-	public void removeAll(long id) {
-		int index = 0;
-		for (Articolo articolo : articoli) {
-			if (id == articolo.getIdProdotto()) {
-				LOG.info("il Prodotto e stato rimosso completamente");
-				System.out.println(" ");
-				index = articoli.indexOf(articolo);
-				articoli.remove(index);
-				break;
-			}
-		}
-
-	}
-
-	public void rimuoviProdotto(long id) {
+	public void rimuoviProdotto(long id) { //rimuove un prodotto nel carrello tramite id e se la quantita e uguale a 1 viene rimosso definitivamente
+											//il prodotto mentre se la quantità e maggiore di 1 viene rimosso 1 dalla quantità
 		boolean trovato = false;
 		int index = 0;
 		long quantita = 0;

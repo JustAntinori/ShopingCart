@@ -30,16 +30,17 @@ import ch.qos.logback.classic.Logger;
 @RequestMapping("/carrello")
 public class Controller {
 	private static final Logger LOG = (Logger) LoggerFactory.getLogger(Magazzino.class);
-	CartList carrello = new CartList();
 	@Autowired()
 	private Magazzino magazzino;
+	@Autowired()
+	private CartList carrello;
 
-	@GetMapping("/lista")
+	@GetMapping("/lista")//stampa il catalogo con i prodotti disponibili in quel momento
 	public HashMap lista() {
 		return magazzino.getCatalogo();
 	}
 
-	@PostMapping("/aggiungi")
+	@PostMapping("/aggiungi")//aggiunge un articolo al carrello
 	public void aggiungi(int id, long quantita) {
 		boolean controllo;
 		controllo=magazzino.controllo(id);
@@ -49,18 +50,18 @@ public class Controller {
 		} 
 	}
 
-	@GetMapping("/stampa")
+	@GetMapping("/stampa")//stama il carrello riempito fino in quel momento
 	public List listaCarrello() {
 		return carrello.getArticoli();
 	}
 
-	@PostMapping("/modifica")
+	@PostMapping("/modifica")//modifica un articolo presente nel carrello
 	public void modifica(long id, long quantita) {
 		carrello.modifyProdotto(id, quantita);
 		LOG.info("Prodotto Modificato correttamente");
 	}
 
-	@DeleteMapping("/rimuovi")
+	@DeleteMapping("/rimuovi")//rimuove un articolo nel carrello 
 	public void rimuovi(long id) {
 		carrello.rimuoviProdotto(id);
 	}

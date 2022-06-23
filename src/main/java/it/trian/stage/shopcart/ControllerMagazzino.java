@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +26,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/magazzino")
 public class ControllerMagazzino {
+	
 	@Autowired()
 	private Magazzino magazzino;
-	@PostMapping("/aggiungi")
+	
+	@PostMapping("/aggiungi")//aggiunge un prodotto nel catalogo
 	public void aggiungiCatalogo(int id, String nome,@RequestParam(required=true) String descrizione) {
 		 magazzino.addProdotto(id, nome, descrizione);
 		
@@ -40,25 +41,21 @@ public class ControllerMagazzino {
 	 * @param id
 	 * @return id se ok,altrimenti -1 
 	 */
-	@DeleteMapping("/rimuovi")
+	@DeleteMapping("/rimuovi")		//rimuove un prodotto nel catalogo
 	public int rimuoviProdotto(int id) { 
 		int temp=0;
 		temp=magazzino.removeProdotto(id);
 		return temp;
-		
-
 	}
 
-	@PostMapping("/modifica")
+	@PostMapping("/modifica")//modifica un prodotto nel catalogo
 	public void modificaProdotto(int id, String nome, String descrizione) {
 		magazzino.modificaProdotto(id, nome, descrizione);
-
 	}
 
-	@GetMapping("/stampa")
+	@GetMapping("/stampa")//stampa il catalogo
 	public HashMap stampaCatalogo() {
 		return magazzino.getCatalogo();
-
 	}
 
 }
